@@ -56,9 +56,9 @@ app.use((error, req, res, next) => {
 
 
 
-const PORT = process.env.PORT || 9000
 
+app.set( 'port', (process.env.PORT || 9000));
 
-app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`)
-})
+app.listen( app.get('port'), function() {
+    console.log('Server is running on port' + app.get('port'));
+});
